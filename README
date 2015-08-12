@@ -11,12 +11,18 @@ ipython> run cb.py
 
 I get the following output:
 
- Yabba Dabba Doo!
+In [1]: run cb.py
+ Yabba Dabba Doo! In Subroutine TEST
+ Calling Fred:
 fred!
+ Calling Bambam:
 bambam: I want 4 Brontosaurus Burgers!
- barney
- Yabba Dabba Doo!
+ In Subroutine BARNEY
+ Calling Subroutine TEST
+ Yabba Dabba Doo! In Subroutine TEST
+ Calling Fred:
 fred!
+ Calling Bambam:
 capi_return is NULL
 Call-back cb_bambam_in_test__user__routines failed.
 ---------------------------------------------------------------------------
@@ -30,9 +36,7 @@ TypeError                                 Traceback (most recent call last)
 
 TypeError: bambam() takes exactly 1 argument (0 given)
 
-The output suggests that the bambam(n) callback in the test subroutine in callback.f 
-works when it is called directly from the python routine, but not when it is called
-indirectly from the barney subroutine in nocallback.f
+The output suggests that the bambam(n) callback in the test subroutine in callback.f works when it is called directly from the python routine, but not when it is called indirectly from the barney subroutine in nocallback.f
 
 Any and all suggestions are welcome!  Thanks for taking the time to look!
 

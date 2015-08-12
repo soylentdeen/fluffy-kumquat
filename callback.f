@@ -11,9 +11,11 @@ cf2py intent(callback, hide) bambam
 
       n = 4
 
-      write (*,*) "Yabba Dabba Doo!"
+      write (*,*) "Yabba Dabba Doo! In Subroutine TEST"
 
+      write (*,*) "Calling Fred:"
       call fred
+      write (*,*) "Calling Bambam:"
       call bambam(n)
 
       end
