@@ -1,0 +1,13 @@
+Help me figure out what is going on with my attempts to use f2py!!
+
+To reproduce my problems:
+
+f2py -c -m flintstone flintstone.pyf callback.f nocallback.f
+
+ipython> run cb.py
+
+I get the following output:
+
+
+
+
