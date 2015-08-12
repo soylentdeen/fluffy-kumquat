@@ -22,11 +22,6 @@ python module flintstone ! in
             external bambam
         end subroutine test
         subroutine barney ! in :flintstone:nocallback.f
-            use test__user__routines
-            intent(callback, hide) fred
-            external fred
-            intent(callback,hide) bambam
-            external bambam
         end subroutine barney
     end interface 
 end python module flintstone
