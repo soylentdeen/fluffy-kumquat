@@ -1,0 +1,31 @@
+!    -*- f90 -*-
+! Note: the context of this file is case sensitive.
+
+python module test__user__routines 
+    interface test_user_interface 
+        subroutine fred ! in :flintstone:callback.f:test:unknown_interface
+            intent(callback,hide) fred
+        end subroutine fred
+        subroutine bambam(n) ! in :flintstone:callback.f:test:unknown_interface
+            intent(callback,hide) bambam
+            integer :: n
+        end subroutine bambam
+    end interface test_user_interface
+end python module test__user__routines
+python module flintstone ! in 
+    interface  ! in :flintstone
+        subroutine test ! in :flintstone:callback.f
+            use test__user__routines, fred=>fred, bambam=>bambam
+            intent(callback, hide) fred
+            external fred
+            intent(callback,hide) bambam
+            external bambam
+        end subroutine test
+        subroutine barney ! in :flintstone:nocallback.f
+        external test
+        end subroutine barney
+    end interface 
+end python module flintstone
+
+! This file was auto-generated with f2py (version:2).
+! See http://cens.ioc.ee/projects/f2py2e/
