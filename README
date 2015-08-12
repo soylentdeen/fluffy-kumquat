@@ -8,6 +8,24 @@ ipython> run cb.py
 
 I get the following output:
 
+ Yabba Dabba Doo!
+fred!
+bambam: I want 4 Brontosaurus Burgers!
+ barney
+ Yabba Dabba Doo!
+fred!
+capi_return is NULL
+Call-back cb_bambam_in_test__user__routines failed.
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+/home/deen/Code/Python/sandbox/f2pcb/cb.py in <module>()
+     12 
+     13 flintstone.test()
+---> 14 flintstone.barney()
+     15 
+     16 
+
+TypeError: bambam() takes exactly 1 argument (0 given)
 
 
 
