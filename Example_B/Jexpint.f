@@ -26,21 +26,28 @@ c******************************************************************************
      1.0435694088/
       data xsave /0./
 c
-c      write (*,*) "x = ", x, ", n = ", n
+      write (*,*) "x = ", x, ", n = ", n
       if (x.ge.100.) goto 800 
       if (x.le.-100.) goto 800 
       xu=x
+      xsave = 0.
+      write (*,*) "xu = ", xu, ", xsave = ", xsave
+      write (*,*) "xm = ", xm, ", eisave = ", eisave 
       if(xu)603,602,603
   602 rex=1.d+00
+      write (*,*) "at 602"
       if(n-1)800,800,801
   800 expint=0.
+      write (*,*) "at 800"
       goto 777
   801 expint=1./xint(n-1)
+      write (*,*) "at 801"
       goto 777
   603 if(xu-xsave)604,503,604
   604 xsave=xu
       xm=-xu
       emx = dexp(xm)
+      write (*,*) "at 604"
 c
 c  select method for computing ei(xm)
 c
@@ -49,6 +56,7 @@ c
   502 if(xm+1.)100,200,200
   503 eisave=-arg
       exsave=emx
+      write (*,*) "at 503"
 c
 c  now recurse to higher orders
 c
@@ -56,9 +64,10 @@ c
  505  do 506 i=2,n
         eisave=(xu*eisave-exsave)/(-xint(i-1))
   506 continue
+      write (*,*) "at 505"
   507 expint=eisave
       rex=exsave
-c      write (*,*) expint
+      write (*,*) "777 : ", expint
   777 return
 c
 c  ei(xm) for xm .lt. -1.0
